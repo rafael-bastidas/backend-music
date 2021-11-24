@@ -7,7 +7,7 @@ colocar en el header -> KEY_MUSIC: Z9AQBQXUWDHRN5GYE3DUG52BTSFT1NMA
 
 1. AUTENTICAR USUARIOS:
 estructura de la peticion -> { url: 'contenido', params: 'autenticar', data: {"user":"rarabala", "password":"123"} }
-respuesta del backend -> { "status": "ok | error", "respuesta": "Usuario no registrado | id_user" }
+respuesta del backend -> { "status": "ok | error", "respuesta": "Usuario no registrado | Contraseña incorrecta | id_user" }
   
 2. REGISTRAR USUARIOS:
 estructura de la peticion -> { url: 'contenido', params: 'registrar', data: {"user":"rarabala", "password":"123", "email":"rarabala@gmail.com", "name":"Rafael Bastidas", "bio":"algo de ti"} }
