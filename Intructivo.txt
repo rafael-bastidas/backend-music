@@ -1,0 +1,16 @@
+Peticiones al backend:
+url -> https://rafaelbastidas.com/apis/api-music/app.php
+method -> POST
+colocar en el header -> KEY_MUSIC: Z9AQBQXUWDHRN5GYE3DUG52BTSFT1NMA
+
+***Recomendación enviar los datos por un elemento FormData.***
+
+1. AUTENTICAR USUARIOS:
+estructura de la peticion -> { url: 'contenido', params: 'autenticar', data: {"user":"rarabala", "password":"123"} }
+respuesta del backend -> { "status": "ok | error", "respuesta": "Usuario no registrado | id_user" }
+  
+2. REGISTRAR USUARIOS:
+estructura de la peticion -> { url: 'contenido', params: 'registrar', data: {"user":"rarabala", "password":"123", "email":"rarabala@gmail.com", "name":"Rafael Bastidas", "bio":"algo de ti"} }
+respuesta del backend -> { "status": "ok | error", "respuesta": "El usuario ya se encuentra registrado | id_user" }
+
+
