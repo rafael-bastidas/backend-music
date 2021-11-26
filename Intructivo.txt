@@ -13,4 +13,81 @@ respuesta del backend -> { "status": "ok | error", "respuesta": "Usuario no regi
 estructura de la peticion -> { url: 'contenido', params: 'registrar', data: {"user":"rarabala", "password":"123", "email":"rarabala@gmail.com", "name":"Rafael Bastidas", "bio":"algo de ti"} }
 respuesta del backend -> { "status": "ok | error", "respuesta": "El usuario ya se encuentra registrado | id_user" }
 
+3. OBTENER TODA LA INFORMACIÓN DE UN USURIO:
+estructura de la peticion -> { url: 'contenido', params: 'get-init', data: {"id_user":"1"} }
+respuesta del backend -> {
+    "response": {
+        "profile": [ { "id_user": "1", "name": "Rafael Bastidas", "bio": "algo de ti", "image": "" } ],
+        "favorite_list": [
+            {
+                 "id_song": "1",
+                 "title": "Señora de las cuatro decadas",
+                 "duration": "3:45",
+                 "album": "Lo mejor del 2020",
+                 "group": "Ricardo Arjona",
+                 "url": ""
+            }, ...
+        ],
+        "my_list": [
+            {
+                "id_my_list": "1",
+                "name": "lista one user 1",
+                "list_id_song": [
+                    {
+                        "id_song": "1",
+                        "title": "Señora de las cuatro decadas",
+                        "duration": "3:45",
+                        "album": "Lo mejor del 2020",
+                        "group": "Ricardo Arjona",
+                        "url": ""
+                    }, ...
+                ]
+            }, ...
+        ],
+        "other_list": [
+            {
+                "id_my_list": "3",
+                "name": "lista one user 3",
+                "list_id_song": [
+                    {
+                        "id_song": "1",
+                        "title": "Señora de las cuatro decadas",
+                        "duration": "3:45",
+                        "album": "Lo mejor del 2020",
+                        "group": "Ricardo Arjona",
+                        "url": ""
+                    }, ...
+                ]
+            }, ...
+        ],
+        "all_songs": [
+            {
+                "id_song": "1",
+                "title": "Señora de las cuatro decadas",
+                "duration": "3:45",
+                "album": "Lo mejor del 2020",
+                "group": "Ricardo Arjona",
+                "url": ""
+            }, ...
+        ],
+        "all_list": [
+            {
+                "id_my_list": "1",
+                "id_user": "1",
+                "name": "lista one user 1",
+                "list_id_song": [
+                    {
+                        "id_song": "1",
+                        "title": "Señora de las cuatro decadas",
+                        "duration": "3:45",
+                        "album": "Lo mejor del 2020",
+                        "group": "Ricardo Arjona",
+                        "url": ""
+                    }, ...
+                ]
+            }, ...
+        ]
+    }
+}
+
 
