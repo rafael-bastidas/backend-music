@@ -1,35 +1,14 @@
 0. ESTRUCTURA DE LA BASE DE DATOS:
-	list_favorite	 	
-  	id_list_favorite      int
-    list_id_song        	text
-    id_user	              int	
-	my_list
-      id_my_list          int
-	    name	              text
-	    list_id_song	      text	
-      id_user	            int	
-	other_list
-      id_other_list       int
-	    name	              text
-	    list_id_song	      text	
-      id_user	            int	
-	songs
-      id_songPrimaria	    int
-	    title	              text
-      duration	          text	
-      album	              text
-      group	              text
-	    url	                text
-	users
-      id_user             int
-      user	              text	
-      password	          text
-      email	              text	
-      name	              text
-      bio	                text	
-      image	              text
-
-      
+	list_favorite:
+		{id_list_favorite: int, list_id_song: text, id_user: int}
+	my_list:
+      		{id_my_list: int, name: text, list_id_song: text, id_user: int}
+	other_list:
+      		{id_other_list: int, name: text, list_id_song: text, id_user: int}
+	songs:
+      		{id_songPrimaria: int, title: text, duration: text, album: text, group: text, url: text}
+	users:
+      		{id_user: int, user: text, password: text, email: text, name: text, bio: text, image: text}
 
 
 Peticiones al backend:
