@@ -6,7 +6,7 @@
 	follow_list:
       		{id_follow_list: int, list_id_my_list: text, id_user: int}
 	songs:
-      		{id_songPrimaria: int, title: text, duration: text, album: text, group: text, url: text}
+      		{id_song: int, title: text, duration: text, album: text, group: text, url: text}
 	users:
       		{id_user: int, user: text, password: text, email: text, name: text, bio: text, image: text}
 
@@ -144,56 +144,56 @@ respuesta del backend para data: {"name":string}
 
 
 5. AGREGAR CANCIONES A LA LISTA DE FAVORITO:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'add-song-tofavorite', data: {"id_user":integer, "id_song":integer} }
+respuesta del backend para data:
 
 
 6. AGREGAR CANCIONES A UNA LISTA CREADA POR EL USUARIO:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'add-song-tolist', data: {"id_my_list":integer, "id_song":integer} }
+respuesta del backend para data: 
 
 
 7. SEGUIR LISTAS CREADAS POR OTROS USUARIOS:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'add-list-tolist', data: {"id_my_list":integer, "id_user":integer} }
+respuesta del backend para data: 
 
 
 8. CREAR LISTAS PROPIAS:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'create-list', data: {"id_user":string, "name":string} }
+respuesta del backend para data: 
 
 
 9. ELIMINAR CANCIONES DE LA LISTA DE FAVORITOS:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'delete-song-fromfavorite', data: {"id_user":string, "id_song":string} }
+respuesta del backend para data: 
 
 
 10. ELIMINAR CANCIONES DE LISTAS CREADAS POR EL USUARIO:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'delete-song-fromlist', data: {"id_my_list":string, "id_song":string} }
+respuesta del backend para data:
 
 
 11. DEJAR DE SEGUIR LISTAS DE TERCEROS:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'delete-list-frommylist', data: {"id_my_list":string} }
+respuesta del backend para data:
 
 
 12. EDITAR LA INFORMACION DE UN USUARIO:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'id_user', data: {id_user: int, name: text, bio: text, image: file<name del input = file_imgportada>} }
+respuesta del backend para data:
 
 
 // ESTO PARA EL USUARIO ADMINISTRADOR //
 13. SUBIR CANCIONES:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'upload-song', data: { title: text, duration: text, album: text, group: text, url: file<name del input = file_song>} }
+respuesta del backend para data:
 
 
 14. EDITAR INFORMACION DE LAS CANCIONES:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {id_song: int, title?: text, duration?: text, album?: text, group?: text, url?: file<name del input = file_song>} }
+respuesta del backend para data:
 
 
 15. ELIMINAR CANCIONES:
-estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
-respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"id_song":int} }
+respuesta del backend para data:
