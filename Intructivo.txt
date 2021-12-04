@@ -3,8 +3,8 @@
 		{id_list_favorite: int, list_id_song: text, id_user: int}
 	my_list:
       		{id_my_list: int, name: text, list_id_song: text, id_user: int}
-	other_list:
-      		{id_other_list: int, name: text, list_id_song: text, id_user: int}
+	follow_list:
+      		{id_follow_list: int, list_id_my_list: text, id_user: int}
 	songs:
       		{id_songPrimaria: int, title: text, duration: text, album: text, group: text, url: text}
 	users:
@@ -22,9 +22,11 @@ colocar en el header -> KEY_MUSIC: Z9AQBQXUWDHRN5GYE3DUG52BTSFT1NMA
 estructura de la peticion -> { url: 'contenido', params: 'autenticar', data: {"user":"rarabala", "password":"123"} }
 respuesta del backend -> { "status": "ok | error", "respuesta": "Usuario no registrado | Contraseña incorrecta | id_user" }
   
+  
 2. REGISTRAR USUARIOS:
 estructura de la peticion -> { url: 'contenido', params: 'registrar', data: {"user":"rarabala", "password":"123", "email":"rarabala@gmail.com", "name":"Rafael Bastidas", "bio":"algo de ti"} }
 respuesta del backend -> { "status": "ok | error", "respuesta": "El usuario ya se encuentra registrado | id_user" }
+
 
 3. OBTENER TODA LA INFORMACIÓN DE UN USURIO:
 estructura de la peticion -> { url: 'contenido', params: 'get-init', data: {"id_user":"1"} }
@@ -104,3 +106,94 @@ respuesta del backend -> {
 }
 
 
+4. FILTRAR LA INFORMACIÖN DE LAS CANCIONES O LISTAS:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+    "response": [
+        {
+            "id_song": "2",
+            "title": "Bandolero",
+            "duration": "2:56",
+            "album": "Los gorgolas",
+            "group": "Don Omar",
+            "url": "https://rafaelbastidas.com/apis/api-music/media/2021-12-03_23:20:45.wav"
+        }...
+    ]
+}
+
+respuesta del backend para data: {"name":string}
+{
+    "response": [
+        {
+            "id_my_list": "3",
+            "id_user": "3",
+            "name": "MyFirstList",
+            "list_id_song": [
+                {
+                    "id_song": "1",
+                    "title": "Señora de las cuatro decadas",
+                    "duration": "3:45",
+                    "album": "Lo mejor del 2020",
+                    "group": "Ricardo Arjona",
+                    "url": "https://rafaelbastidas.com/apis/api-music/media/2021-12-03_23:20:45.wav"
+                }
+            ]
+        }...
+    ]
+}
+
+
+5. AGREGAR CANCIONES A LA LISTA DE FAVORITO:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+6. AGREGAR CANCIONES A UNA LISTA CREADA POR EL USUARIO:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+7. SEGUIR LISTAS CREADAS POR OTROS USUARIOS:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+8. CREAR LISTAS PROPIAS:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+9. ELIMINAR CANCIONES DE LA LISTA DE FAVORITOS:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+10. ELIMINAR CANCIONES DE LISTAS CREADAS POR EL USUARIO:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+11. DEJAR DE SEGUIR LISTAS DE TERCEROS:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+12. EDITAR LA INFORMACION DE UN USUARIO:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+// ESTO PARA EL USUARIO ADMINISTRADOR //
+13. SUBIR CANCIONES:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+14. EDITAR INFORMACION DE LAS CANCIONES:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
+
+
+15. ELIMINAR CANCIONES:
+estructura de la peticion -> { url: 'contenido', params: 'get-filter', data: {"title":string} | {"album":string} | {"group":string} | {"name":string} }
+respuesta del backend para data: {"title":string} | {"album":string} | {"group":string}  -> {
